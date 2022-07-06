@@ -14,6 +14,8 @@ class UserSerializer(serializers.ModelSerializer):
             'id','first_name','last_name','username','tweet','comment','like','retweet'
         )
 
+
+
 class ProfileSerializer(serializers.ModelSerializer):
     user = UserSerializer()
     class Meta:
@@ -32,8 +34,8 @@ class TweetSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tweet_Model
         fields = (
-            'id','owner','content','created_time','comment','like','retweet'
-        )
+            'id','owner','content','created_time','comment','like','retweet','number_of_likes','number_of_retweets'
+        )    
 
 
 class Commentserializer(serializers.ModelSerializer):

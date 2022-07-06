@@ -16,10 +16,24 @@ class Tweet_Model(models.Model):
     created_time = models.TimeField(auto_now_add=True)
     # retweet = models.ManyToManyField(User, related_name='retweet')
     # like = models.ManyToManyField(User,related_name='like')
-    
 
     def __str__(self):
         return self.content
+
+    @property
+    def number_of_comment(self):
+        return CommentModels.objects.filter(tweet=self).count()
+
+    @property
+    def number_of_likes(self):
+        return LikeModel.objects.filter(tweet=self).count()
+    
+    @property
+    def number_of_retweets(self):
+        return RetweetModel.objects.filter(tweet=self).count()
+
+    
+    
 
 class CommentModels(models.Model):
     created_time =models.TimeField(auto_now_add=True)
