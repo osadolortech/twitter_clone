@@ -1,4 +1,3 @@
-
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -25,3 +24,6 @@ class CommentModels(models.Model):
     created_time =models.TimeField(auto_now_add=True)
     body = models.CharField(max_length=168)
     owner = models.ForeignKey(User, related_name='comment',on_delete=models.CASCADE)
+=======
+
+# Create your models here.
