@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 class ProfileModel(models.Model):
     first_name = models.CharField(max_length=20, default="")
     last_name = models.CharField(max_length=20, default="")
+    username = models.ForeignKey(User,on_delete=models.CASCADE, default=1)
     Bio = models.CharField(max_length=60)
     Location = models.CharField(max_length=30)
     Birth_date = models.DateField(editable=True)

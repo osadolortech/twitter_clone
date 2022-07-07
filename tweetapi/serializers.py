@@ -11,17 +11,16 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = (
-            'id','first_name','last_name','username','tweet','comment','like','retweet'
+            'id','email','first_name','last_name','username','tweet','comment','like','retweet'
         )
 
 
 
 class ProfileSerializer(serializers.ModelSerializer):
-    user = UserSerializer()
     class Meta:
         model = ProfileModel
         fields = (
-            'id','user','Bio','Location','Birth_date'
+            'id','first_name','last_name','username','Bio','Location','Birth_date'
         )
         
 
