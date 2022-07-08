@@ -6,9 +6,10 @@ from .serializers import ProfileSerializer,UserSerializer,TweetSerializer,Commen
 class Userview(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-
+    
     def perform_create(self, serializer):
         return super().perform_create(serializer)
+
 class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
     serializer_class= UserSerializer

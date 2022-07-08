@@ -4,9 +4,9 @@ from django.contrib.auth.models import User
 
 
 class ProfileModel(models.Model):
-    first_name = models.CharField(max_length=20, default="")
-    last_name = models.CharField(max_length=20, default="")
-    username = models.ForeignKey(User,on_delete=models.CASCADE, default=1)
+    first_name = models.CharField(max_length=20)
+    last_name = models.CharField(max_length=20)
+    username = models.ForeignKey(User,on_delete=models.CASCADE)
     Bio = models.CharField(max_length=60)
     Location = models.CharField(max_length=30)
     Birth_date = models.DateField(editable=True)
@@ -15,9 +15,7 @@ class Tweet_Model(models.Model):
     owner = models.ForeignKey(User, related_name='tweet', on_delete=models.CASCADE)
     content = models.CharField(max_length=168, null=True)
     created_time = models.TimeField(auto_now_add=True)
-    # retweet = models.ManyToManyField(User, related_name='retweet')
-    # like = models.ManyToManyField(User,related_name='like')
-
+    
     def __str__(self):
         return self.content
 
